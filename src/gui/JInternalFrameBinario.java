@@ -32,8 +32,7 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int u = jSlider1.getValue();
-                BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
-                //BufferedImage bn = new BufferedImage(bi.getWidth(),bi.getHeight(),BufferedImage.TYPE_BYTE_BINARY);
+                BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
                 Color color;
                 
                  for(int j = 0 ; j< bi.getWidth();j++){
@@ -78,7 +77,7 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
 
         jButton1.setText("Binario");
 
-        jSlider1.setMajorTickSpacing(25);
+        jSlider1.setMajorTickSpacing(10);
         jSlider1.setMaximum(255);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
@@ -90,11 +89,12 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(71, 71, 71)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
