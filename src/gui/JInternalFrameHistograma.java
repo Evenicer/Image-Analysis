@@ -9,6 +9,7 @@ import espacial.Histograma;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -37,6 +38,32 @@ public class JInternalFrameHistograma extends javax.swing.JInternalFrame {
                 h.graficar();
             }
         });
+        
+        this.jButtonHistogramaSelect.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               Image imagen = internal.getImagenOriginal();
+               Histograma h = new Histograma(imagen);
+               
+               if(jCheckBoxRED.isSelected() == true && jCheckBoxBLUE.isSelected() == false && jCheckBoxGREEN.isSelected() == false){
+                   h.graficarRed();
+               }else if(jCheckBoxBLUE.isSelected() == true && jCheckBoxRED.isSelected() == false && jCheckBoxGREEN.isSelected() == false){
+                   h.graficarBlue();
+               }else if(jCheckBoxGREEN.isSelected() == true && jCheckBoxRED.isSelected() == false && jCheckBoxBLUE.isSelected() == false){
+                   h.graficarGreen();
+               }else if((jCheckBoxRED.isSelected() == true) && (jCheckBoxBLUE.isSelected() == true)){
+                   h.graficarRedBlue();
+               }else if(jCheckBoxRED.isSelected() == true && jCheckBoxGREEN.isSelected() == true){
+                   h.graficarRedGreen();
+               }else if(jCheckBoxBLUE.isSelected() == true && jCheckBoxGREEN.isSelected() == true){
+                   h.graficarGreenBlue();
+               }else if(jCheckBoxRED.isSelected() == true && jCheckBoxBLUE.isSelected() == true && jCheckBoxGREEN.isSelected() == true){
+                   showMessageDialog(null, "Para graficar RGB hay un boton arriba");
+               }else{
+                   showMessageDialog(null, "Seleccion un campo");
+               }
+            }
+        });
     }
 
     /**
@@ -49,34 +76,97 @@ public class JInternalFrameHistograma extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jButtonHistograma = new javax.swing.JButton();
+        jCheckBoxRED = new javax.swing.JCheckBox();
+        jCheckBoxGREEN = new javax.swing.JCheckBox();
+        jCheckBoxBLUE = new javax.swing.JCheckBox();
+        jButtonHistogramaSelect = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
 
-        jButtonHistograma.setText("Graficar");
+        jButtonHistograma.setText("Graficar RGB");
+
+        jCheckBoxRED.setText("Red");
+        jCheckBoxRED.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxREDActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxGREEN.setText("Green");
+        jCheckBoxGREEN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxGREENActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxBLUE.setText("Blue");
+        jCheckBoxBLUE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxBLUEActionPerformed(evt);
+            }
+        });
+
+        jButtonHistogramaSelect.setText("Graficar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButtonHistograma)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonHistogramaSelect)
+                .addGap(30, 30, 30))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jButtonHistograma))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBoxRED)
+                            .addComponent(jCheckBoxBLUE)
+                            .addComponent(jCheckBoxGREEN))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jButtonHistograma)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jCheckBoxRED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonHistogramaSelect)
+                    .addComponent(jCheckBoxGREEN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBoxBLUE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCheckBoxREDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxREDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxREDActionPerformed
+
+    private void jCheckBoxGREENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxGREENActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxGREENActionPerformed
+
+    private void jCheckBoxBLUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBLUEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxBLUEActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonHistograma;
+    private javax.swing.JButton jButtonHistogramaSelect;
+    private javax.swing.JCheckBox jCheckBoxBLUE;
+    private javax.swing.JCheckBox jCheckBoxGREEN;
+    private javax.swing.JCheckBox jCheckBoxRED;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,11 +6,8 @@
 package gui;
 
 import java.awt.event.ActionListener;
-import listeners.FiltrosImagenListener;
-import listeners.HistogramaListener;
 import listeners.InternalFrameListener;
-import listeners.ModificarImagenListener;
-import listeners.RecortarImagenListener;
+import listeners.MenuItemsImagenListener;
 
 /**
  *
@@ -24,11 +21,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
      */
     public JFramePrincipal() {
         initComponents();
+        MenuItemsImagenListener lis = new MenuItemsImagenListener(this);
         this.jMenuItem1.addActionListener(new InternalFrameListener(this));
-        this.jMenuItem2.addActionListener(new ModificarImagenListener(this)); 
-        this.jMenuItemRecortar.addActionListener(new RecortarImagenListener(this));
-        this.jMenuItemFiltros.addActionListener(new FiltrosImagenListener(this)); 
-        this.jMenuItemHistograma.addActionListener(new HistogramaListener(this));
+        this.jMenuItemModificarPixeles.addActionListener(lis);
+        this.jMenuItemNegativo.addActionListener(lis);
+        this.jMenuItemRecortar.addActionListener(lis);
+        this.jMenuItemHistograma.addActionListener(lis);
+        this.jMenuItemBinario.addActionListener(lis);
+        this.jMenuItemGrises.addActionListener(lis);
     }
 
     /**
@@ -45,10 +45,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuHistograma = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemModificarPixeles = new javax.swing.JMenuItem();
         jMenuItemRecortar = new javax.swing.JMenuItem();
-        jMenuItemFiltros = new javax.swing.JMenuItem();
         jMenuItemHistograma = new javax.swing.JMenuItem();
+        jMenuItemGrises = new javax.swing.JMenuItem();
+        jMenuItemNegativo = new javax.swing.JMenuItem();
+        jMenuItemBinario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,8 +74,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenuHistograma.setText("Espacial");
 
-        jMenuItem2.setText("Modificar Pixeles");
-        jMenuHistograma.add(jMenuItem2);
+        jMenuItemModificarPixeles.setText("Modificar Pixeles");
+        jMenuHistograma.add(jMenuItemModificarPixeles);
 
         jMenuItemRecortar.setText("Recortar Imagen");
         jMenuItemRecortar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,14 +85,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         jMenuHistograma.add(jMenuItemRecortar);
 
-        jMenuItemFiltros.setText("Filtros Imagen");
-        jMenuItemFiltros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemFiltrosActionPerformed(evt);
-            }
-        });
-        jMenuHistograma.add(jMenuItemFiltros);
-
         jMenuItemHistograma.setText("Graficar Histograma");
         jMenuItemHistograma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +92,30 @@ public class JFramePrincipal extends javax.swing.JFrame {
             }
         });
         jMenuHistograma.add(jMenuItemHistograma);
+
+        jMenuItemGrises.setText("Escala de Grises");
+        jMenuItemGrises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGrisesActionPerformed(evt);
+            }
+        });
+        jMenuHistograma.add(jMenuItemGrises);
+
+        jMenuItemNegativo.setText("Negativo");
+        jMenuItemNegativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNegativoActionPerformed(evt);
+            }
+        });
+        jMenuHistograma.add(jMenuItemNegativo);
+
+        jMenuItemBinario.setText("Binario");
+        jMenuItemBinario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBinarioActionPerformed(evt);
+            }
+        });
+        jMenuHistograma.add(jMenuItemBinario);
 
         jMenuBar1.add(jMenuHistograma);
 
@@ -121,13 +139,21 @@ public class JFramePrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemRecortarActionPerformed
 
-    private void jMenuItemFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFiltrosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemFiltrosActionPerformed
-
     private void jMenuItemHistogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHistogramaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemHistogramaActionPerformed
+
+    private void jMenuItemBinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBinarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemBinarioActionPerformed
+
+    private void jMenuItemGrisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGrisesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemGrisesActionPerformed
+
+    private void jMenuItemNegativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNegativoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemNegativoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,9 +197,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuHistograma;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItemFiltros;
+    private javax.swing.JMenuItem jMenuItemBinario;
+    private javax.swing.JMenuItem jMenuItemGrises;
     private javax.swing.JMenuItem jMenuItemHistograma;
+    private javax.swing.JMenuItem jMenuItemModificarPixeles;
+    private javax.swing.JMenuItem jMenuItemNegativo;
     private javax.swing.JMenuItem jMenuItemRecortar;
     // End of variables declaration//GEN-END:variables
 

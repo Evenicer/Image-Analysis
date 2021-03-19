@@ -51,11 +51,70 @@ public class Histograma {
         Grafica g1 = new Grafica("RGB","Frecuencia","Histograma");
         g1.agregarSerie("RED:", getR());
         g1.agregarSerie("BLUE", getB());
-        g1.agregarSerie("GREEB", getG());
+        g1.agregarSerie("GREEN", getG());
         g1.crearGrafica();
         g1.muestraGrafica();
     
     }
+    
+    public void graficarRed(){
+        calcularHistogramas();
+        Grafica g1 = new Grafica("RED","Frecuencia","Histograma");
+        g1.agregarSerie("RED:", getR());
+        g1.crearGrafica();
+        g1.muestraGrafica();
+    }
+    
+    public void graficarGreen(){
+        calcularHistogramas();
+        Grafica g1 = new Grafica("GREEN","Frecuencia","Histograma");
+        g1.agrearSerie(" ");
+        g1.agrearSerie("");
+        g1.agregarSerie("GREEN:", getG());
+        g1.crearGrafica();
+        g1.muestraGrafica();
+    }
+    
+    public void graficarBlue(){
+        calcularHistogramas();
+        Grafica g1 = new Grafica("BLUE","Frecuencia","Histograma");
+        g1.agrearSerie(" ");
+        g1.agregarSerie("BLUE:", getB());
+        g1.agrearSerie("");
+        g1.crearGrafica();
+        g1.muestraGrafica();
+    }
+    
+    public void graficarRedBlue(){
+        calcularHistogramas();
+        Grafica g1 = new Grafica("RED & BLUE","Frecuencia","Histograma");
+        g1.agregarSerie("RED:", getR());
+        g1.agregarSerie("Blue", getB());
+        g1.crearGrafica();
+        g1.muestraGrafica();
+    }
+    
+    public void graficarRedGreen(){
+        calcularHistogramas();
+        Grafica g1 = new Grafica("RED & GREEN","Frecuencia","Histograma");
+        g1.agregarSerie("RED:", getR());
+        g1.agrearSerie("");
+        g1.agregarSerie("GREEN:", getG());
+        g1.crearGrafica();
+        g1.muestraGrafica();
+    }
+    
+    public void graficarGreenBlue(){
+        calcularHistogramas();
+        Grafica g1 = new Grafica("RED & BLUE","Frecuencia","Histograma");
+        g1.agrearSerie("");
+        g1.agregarSerie("GREEN:", getG());
+        g1.agregarSerie("BLUE:", getB());
+        g1.crearGrafica();
+        g1.muestraGrafica();
+    }
+    
+    
 
     /**
      * @return the r

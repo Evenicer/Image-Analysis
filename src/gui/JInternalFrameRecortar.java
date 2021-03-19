@@ -46,7 +46,7 @@ public class JInternalFrameRecortar extends javax.swing.JInternalFrame {
                 
                 int widthImgNueva = nueva.getWidth(internal);
                 int heigthImgNueva = nueva.getHeight(internal);
-                internal.setSize(widthImgNueva, heigthImgNueva);
+                //internal.setSize(widthImgNueva, heigthImgNueva);
                 internal.setImagen(nueva); 
             }
         });
