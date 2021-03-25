@@ -10,6 +10,9 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -28,10 +31,11 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
         initComponents();
         
         this.imagenOriginal = herramientas.HerramientasImagen.copiarImagen(internal.getImagenOriginal());
-        this.jButton1.addActionListener(new ActionListener() {
+        this.jSlider1.addChangeListener(new ChangeListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                int u = jSlider1.getValue();
+            public void stateChanged(ChangeEvent e) {
+                int u = ((JSlider) e.getSource()).getValue();
+                
                 BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
                 Color color;
                 
@@ -69,13 +73,10 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
 
         setClosable(true);
         setIconifiable(true);
-
-        jButton1.setText("Binario");
 
         jSlider1.setMajorTickSpacing(10);
         jSlider1.setMaximum(255);
@@ -89,12 +90,7 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -102,9 +98,7 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(22, 22, 22))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,7 +106,6 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
 }

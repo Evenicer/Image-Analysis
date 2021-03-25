@@ -29,6 +29,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         this.jMenuItemHistograma.addActionListener(lis);
         this.jMenuItemBinario.addActionListener(lis);
         this.jMenuItemGrises.addActionListener(lis);
+        this.jMenuItemIluminacion.addActionListener(lis);
     }
 
     /**
@@ -51,6 +52,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemGrises = new javax.swing.JMenuItem();
         jMenuItemNegativo = new javax.swing.JMenuItem();
         jMenuItemBinario = new javax.swing.JMenuItem();
+        jMenuItemIluminacion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +119,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         jMenuHistograma.add(jMenuItemBinario);
 
+        jMenuItemIluminacion.setText("Iluminacion");
+        jMenuItemIluminacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemIluminacionActionPerformed(evt);
+            }
+        });
+        jMenuHistograma.add(jMenuItemIluminacion);
+
         jMenuBar1.add(jMenuHistograma);
 
         setJMenuBar(jMenuBar1);
@@ -154,6 +164,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void jMenuItemNegativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNegativoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemNegativoActionPerformed
+
+    private void jMenuItemIluminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIluminacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemIluminacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,6 +214,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemBinario;
     private javax.swing.JMenuItem jMenuItemGrises;
     private javax.swing.JMenuItem jMenuItemHistograma;
+    private javax.swing.JMenuItem jMenuItemIluminacion;
     private javax.swing.JMenuItem jMenuItemModificarPixeles;
     private javax.swing.JMenuItem jMenuItemNegativo;
     private javax.swing.JMenuItem jMenuItemRecortar;

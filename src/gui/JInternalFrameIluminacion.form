@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSlider1" pref="608" max="32767" attributes="0"/>
+              <Component id="jSliderIIluminacion" pref="1014" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -34,17 +34,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSlider1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <Component id="jSliderIIluminacion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JSlider" name="jSlider1">
+    <Component class="javax.swing.JSlider" name="jSliderIIluminacion">
       <Properties>
-        <Property name="majorTickSpacing" type="int" value="10"/>
+        <Property name="majorTickSpacing" type="int" value="15"/>
         <Property name="maximum" type="int" value="255"/>
+        <Property name="minimum" type="int" value="-255"/>
         <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="paintTicks" type="boolean" value="true"/>
         <Property name="value" type="int" value="15"/>

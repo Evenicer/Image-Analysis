@@ -48,4 +48,29 @@ public class Filtros {
         }
         return herramientas.HerramientasImagen.toImage(b1);
     }
+    
+    public static Image modificarIluminacion(Image imagenOrginal , int valor){ 
+        BufferedImage b1 = herramientas.HerramientasImagen.toBufferedImage(imagenOrginal);
+        
+        for (int i = 0; i < b1.getWidth(); i++) {
+            for (int j = 0; j < b1.getHeight(); j++) {
+                //Se obtiene el color de la imagen
+                Color c = new Color(b1.getRGB(i, j));
+                //Se calcula el nuevo color con el valor que se mande
+                int r = c.getRed()+valor;
+                int g = c.getGreen()+valor;
+                int b = c.getBlue()+valor;
+                //Se manda el color a la imagen
+                c = new Color(verificar(r),verificar(g),verificar(b));
+                b1.setRGB(i, j, c.getRGB());
+            }
+        }
+        return herramientas.HerramientasImagen.toImage(b1);
+    }
+    
+    public static int verificar(int valor){
+        if(valor > 255) return 255;
+        if(valor < 0) return 0;
+        return valor;
+    }
 }

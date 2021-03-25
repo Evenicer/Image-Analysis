@@ -5,9 +5,11 @@
  */
 package listeners;
 
+import espacial.Filtros;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
 import gui.JInternalFrameHistograma;
+import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameModificar;
 import gui.JInternalFrameRecortar;
@@ -92,6 +94,16 @@ public class MenuItemsImagenListener implements ActionListener{
 
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
+        //Iluminacion
+        if (item.getText().equals("Iluminacion")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            
+            JInternalFrameIluminacion i = new JInternalFrameIluminacion(internal);
+
+            i.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(i);
         }
     }
     
