@@ -20,12 +20,14 @@ public class Histograma {
     private int[]r;
     private int[]g;
     private int[]b;
+    private int[]grises;
 
     public Histograma(Image imagen) {
         this.imagenOriginal = imagen;
         this.r = new int[256];
         this.g = new int[256];
         this.b = new int[256];
+        this.grises = new int[256];
     }
     public void calcularHistogramas(){
         // recorrer la imagen
@@ -41,7 +43,8 @@ public class Histograma {
                 this.r[r]++;
                 this.g[g]++;
                 this.b[b]++;
-                
+                int prom = (color.getRed()+color.getGreen()+color.getBlue())/3;
+                this.grises[prom]++;
             }
     }
        
@@ -135,6 +138,10 @@ public class Histograma {
      */
     public int[] getB() {
         return b;
+    }
+    
+    public int[] getGrises() {
+        return grises;
     }
     
 }

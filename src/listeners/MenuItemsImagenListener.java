@@ -5,9 +5,12 @@
  */
 package listeners;
 
+import espacial.BinarizacionAutomatica;
 import espacial.Filtros;
+import espacial.Histograma;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
+import gui.JInternalFrameBinario2;
 import gui.JInternalFrameHistograma;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
@@ -96,6 +99,16 @@ public class MenuItemsImagenListener implements ActionListener{
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
         
+        //Binarizacion con 2 umbrales
+        if (item.getText().equals("Binario 2")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+
+            JInternalFrameBinario2 internalNuevo = new JInternalFrameBinario2(internal);
+
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
         //Iluminacion
         if (item.getText().equals("Iluminacion")) {
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
@@ -104,6 +117,40 @@ public class MenuItemsImagenListener implements ActionListener{
 
             i.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(i);
+        }
+        
+        //Binarizacion Automatica Metodo Iterativo
+        if (item.getText().equals("Binario Automatico")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image i = internal.getImagenOriginal();
+            // convertimos a escala de grises
+            Image grises = espacial.Filtros.EscalaGrises(i);
+            Histograma h = new Histograma(grises); 
+            h.calcularHistogramas();
+            int u = BinarizacionAutomatica.metodoIterativo(h.getGrises());
+            Image binario = espacial.Filtros.Binario(grises, u);
+            System.out.println(u);
+            JInternalFrameImagen internalNuevo = new JInternalFrameImagen(binario);
+                       
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
+        //Binarizacion Automatica OTZU
+        if (item.getText().equals("Binarizacion OTZU")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image i = internal.getImagenOriginal();
+            // convertimos a escala de grises
+            Image grises = espacial.Filtros.EscalaGrises(i);
+            Histograma h = new Histograma(grises); 
+            h.calcularHistogramas();
+            int u = BinarizacionAutomatica.Otsu(h.getGrises());
+            Image binario = espacial.Filtros.Binario(grises, u);
+            System.out.println(u);
+            JInternalFrameImagen internalNuevo = new JInternalFrameImagen(binario);
+                       
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
     }
     

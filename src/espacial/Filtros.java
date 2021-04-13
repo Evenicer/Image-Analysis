@@ -49,6 +49,59 @@ public class Filtros {
         return herramientas.HerramientasImagen.toImage(b1);
     }
     
+    public static Image Binario(Image imagenOriginal, int umbral) {
+        BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
+        Color color;
+
+        for (int j = 0; j < bi.getWidth(); j++) {
+            for (int m = 0; m < bi.getHeight(); m++) {
+                color = new Color(bi.getRGB(j, m));
+                //¿ que tenemos que hacer para reducir de 24 a 2? en base a u
+                int r = color.getRed();
+                int g = color.getGreen();
+                int b = color.getBlue();
+
+                //escala de grises
+                int prom = (r + g + b) / 3;
+
+                //Dependiendo del valor del umbral, mando los valores maximo o minimo
+                if (prom >= umbral) {
+                    bi.setRGB(j, m, Color.BLACK.getRGB());
+                } else {
+                    bi.setRGB(j, m, Color.WHITE.getRGB());
+                }
+            }
+        }
+        return herramientas.HerramientasImagen.toImage(bi);
+    }
+    
+    public static Image Binario(Image imagenOriginal, int umbral , int umbral2) {
+        BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
+        Color color;
+
+        for (int j = 0; j < bi.getWidth(); j++) {
+            for (int m = 0; m < bi.getHeight(); m++) {
+                color = new Color(bi.getRGB(j, m));
+                //¿ que tenemos que hacer para reducir de 24 a 2? en base a u
+                int r = color.getRed();
+                int g = color.getGreen();
+                int b = color.getBlue();
+
+                //escala de grises
+                int prom = (r + g + b) / 3;
+
+                //Dependiendo del valor del umbral, mando los valores maximo o minimo
+                if (prom >= umbral && prom <= umbral2) {
+                    bi.setRGB(j, m, Color.BLACK.getRGB());
+                } else {
+                    bi.setRGB(j, m, Color.WHITE.getRGB());
+                }
+            }
+        }
+        return herramientas.HerramientasImagen.toImage(bi);
+    }
+    
+    
     public static Image modificarIluminacion(Image imagenOrginal , int valor){ 
         BufferedImage b1 = herramientas.HerramientasImagen.toBufferedImage(imagenOrginal);
         

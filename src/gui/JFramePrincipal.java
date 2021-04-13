@@ -30,6 +30,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         this.jMenuItemBinario.addActionListener(lis);
         this.jMenuItemGrises.addActionListener(lis);
         this.jMenuItemIluminacion.addActionListener(lis);
+        this.jMenuItemBinario2.addActionListener(lis);
+        this.jMenuItemBinarioAutomatico.addActionListener(lis);
+        this.jMenuItemOtzu.addActionListener(lis);
     }
 
     /**
@@ -41,11 +44,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         jDesktopPanePrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuHistograma = new javax.swing.JMenu();
+        jMenuOtzu = new javax.swing.JMenu();
         jMenuItemModificarPixeles = new javax.swing.JMenuItem();
         jMenuItemRecortar = new javax.swing.JMenuItem();
         jMenuItemHistograma = new javax.swing.JMenuItem();
@@ -53,6 +59,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemNegativo = new javax.swing.JMenuItem();
         jMenuItemBinario = new javax.swing.JMenuItem();
         jMenuItemIluminacion = new javax.swing.JMenuItem();
+        jMenuItemBinario2 = new javax.swing.JMenuItem();
+        jMenuItemBinarioAutomatico = new javax.swing.JMenuItem();
+        jMenuItemOtzu = new javax.swing.JMenuItem();
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,10 +90,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenuHistograma.setText("Espacial");
+        jMenuOtzu.setText("Espacial");
 
         jMenuItemModificarPixeles.setText("Modificar Pixeles");
-        jMenuHistograma.add(jMenuItemModificarPixeles);
+        jMenuOtzu.add(jMenuItemModificarPixeles);
 
         jMenuItemRecortar.setText("Recortar Imagen");
         jMenuItemRecortar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +101,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jMenuItemRecortarActionPerformed(evt);
             }
         });
-        jMenuHistograma.add(jMenuItemRecortar);
+        jMenuOtzu.add(jMenuItemRecortar);
 
         jMenuItemHistograma.setText("Graficar Histograma");
         jMenuItemHistograma.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +109,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jMenuItemHistogramaActionPerformed(evt);
             }
         });
-        jMenuHistograma.add(jMenuItemHistograma);
+        jMenuOtzu.add(jMenuItemHistograma);
 
         jMenuItemGrises.setText("Escala de Grises");
         jMenuItemGrises.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +117,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jMenuItemGrisesActionPerformed(evt);
             }
         });
-        jMenuHistograma.add(jMenuItemGrises);
+        jMenuOtzu.add(jMenuItemGrises);
 
         jMenuItemNegativo.setText("Negativo");
         jMenuItemNegativo.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +125,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jMenuItemNegativoActionPerformed(evt);
             }
         });
-        jMenuHistograma.add(jMenuItemNegativo);
+        jMenuOtzu.add(jMenuItemNegativo);
 
         jMenuItemBinario.setText("Binario");
         jMenuItemBinario.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +133,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jMenuItemBinarioActionPerformed(evt);
             }
         });
-        jMenuHistograma.add(jMenuItemBinario);
+        jMenuOtzu.add(jMenuItemBinario);
 
         jMenuItemIluminacion.setText("Iluminacion");
         jMenuItemIluminacion.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +141,33 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jMenuItemIluminacionActionPerformed(evt);
             }
         });
-        jMenuHistograma.add(jMenuItemIluminacion);
+        jMenuOtzu.add(jMenuItemIluminacion);
 
-        jMenuBar1.add(jMenuHistograma);
+        jMenuItemBinario2.setText("Binario 2");
+        jMenuItemBinario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBinario2ActionPerformed(evt);
+            }
+        });
+        jMenuOtzu.add(jMenuItemBinario2);
+
+        jMenuItemBinarioAutomatico.setText("Binario Automatico");
+        jMenuItemBinarioAutomatico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBinarioAutomaticoActionPerformed(evt);
+            }
+        });
+        jMenuOtzu.add(jMenuItemBinarioAutomatico);
+
+        jMenuItemOtzu.setText("Binarizacion OTZU");
+        jMenuItemOtzu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemOtzuActionPerformed(evt);
+            }
+        });
+        jMenuOtzu.add(jMenuItemOtzu);
+
+        jMenuBar1.add(jMenuOtzu);
 
         setJMenuBar(jMenuBar1);
 
@@ -145,29 +185,41 @@ public class JFramePrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemRecortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRecortarActionPerformed
+    private void jMenuItemBinarioAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBinarioAutomaticoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemRecortarActionPerformed
+    }//GEN-LAST:event_jMenuItemBinarioAutomaticoActionPerformed
 
-    private void jMenuItemHistogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHistogramaActionPerformed
+    private void jMenuItemBinario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBinario2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemHistogramaActionPerformed
+    }//GEN-LAST:event_jMenuItemBinario2ActionPerformed
+
+    private void jMenuItemIluminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIluminacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemIluminacionActionPerformed
 
     private void jMenuItemBinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBinarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemBinarioActionPerformed
 
-    private void jMenuItemGrisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGrisesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemGrisesActionPerformed
-
     private void jMenuItemNegativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNegativoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemNegativoActionPerformed
 
-    private void jMenuItemIluminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIluminacionActionPerformed
+    private void jMenuItemGrisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGrisesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemIluminacionActionPerformed
+    }//GEN-LAST:event_jMenuItemGrisesActionPerformed
+
+    private void jMenuItemHistogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHistogramaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemHistogramaActionPerformed
+
+    private void jMenuItemRecortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRecortarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemRecortarActionPerformed
+
+    private void jMenuItemOtzuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOtzuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemOtzuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,16 +260,22 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuHistograma;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemBinario;
+    private javax.swing.JMenuItem jMenuItemBinario2;
+    private javax.swing.JMenuItem jMenuItemBinarioAutomatico;
     private javax.swing.JMenuItem jMenuItemGrises;
     private javax.swing.JMenuItem jMenuItemHistograma;
     private javax.swing.JMenuItem jMenuItemIluminacion;
     private javax.swing.JMenuItem jMenuItemModificarPixeles;
     private javax.swing.JMenuItem jMenuItemNegativo;
+    private javax.swing.JMenuItem jMenuItemOtzu;
     private javax.swing.JMenuItem jMenuItemRecortar;
+    private javax.swing.JMenu jMenuOtzu;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
 
     /**

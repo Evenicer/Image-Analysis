@@ -35,31 +35,9 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 int u = ((JSlider) e.getSource()).getValue();
-                
-                BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
-                Color color;
-                
-                 for(int j = 0 ; j< bi.getWidth();j++){
-                    for(int m = 0 ; m < bi.getHeight();m++){
-                        color = new Color(bi.getRGB(j, m));
-                        //¿ que tenemos que hacer para reducir de 24 a 2? en base a u
-                        int r = color.getRed();
-                        int g = color.getGreen();
-                        int b = color.getBlue();
-                      
-                        //escala de grises
-                        int prom = (r+g+b)/3;
-                        
-                        //Dependiendo del valor del umbral, mando los valores maximo o minimo
-                        if(prom >= u){
-                            bi.setRGB(j, m, Color.BLACK.getRGB());
-                        }else{
-                            bi.setRGB(j, m, Color.WHITE.getRGB());
-                        }
-                    }
-                }
-                 Image nueva = herramientas.HerramientasImagen.toImage(bi);
-                 internal.setImagen(nueva);
+
+                Image nueva = espacial.Filtros.Binario(imagenOriginal, u);
+                internal.setImagen(nueva);
             }
         });
     }

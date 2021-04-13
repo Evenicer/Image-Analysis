@@ -5,6 +5,7 @@
  */
 package analisisimagenes2021.pkg2;
 
+import espacial.BinarizacionAutomatica;
 import espacial.Histograma;
 import java.awt.Color;
 import java.awt.Image;
@@ -26,6 +27,7 @@ public class AnalisisImagenes20212 {
         //BufferedImage bImagen = herramientas.HerramientasImagen.toBufferedImage(imagen);
          Histograma h = new Histograma(imagen); 
          h.graficar();
+         int u = BinarizacionAutomatica.metodoIterativo(h.getGrises());
         
         System.out.println();
     }
