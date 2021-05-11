@@ -17,17 +17,17 @@ import java.awt.image.BufferedImage;
 public class Histograma {
     
     private Image imagenOriginal;
-    private int[]r;
-    private int[]g;
-    private int[]b;
-    private int[]grises;
+    private double[]r;
+    private double[]g;
+    private double[]b;
+    private double[]grises;
 
     public Histograma(Image imagen) {
         this.imagenOriginal = imagen;
-        this.r = new int[256];
-        this.g = new int[256];
-        this.b = new int[256];
-        this.grises = new int[256];
+        this.r = new double[256];
+        this.g = new double[256];
+        this.b = new double[256];
+        this.grises = new double[256];
     }
     public void calcularHistogramas(){
         // recorrer la imagen
@@ -122,25 +122,25 @@ public class Histograma {
     /**
      * @return the r
      */
-    public int[] getR() {
+    public double[] getR() {
         return r;
     }
 
     /**
      * @return the g
      */
-    public int[] getG() {
+    public double[] getG() {
         return g;
     }
 
     /**
      * @return the b
      */
-    public int[] getB() {
+    public double[] getB() {
         return b;
     }
     
-    public int[] getGrises() {
+    public double[] getGrises() {
         return grises;
     }
     

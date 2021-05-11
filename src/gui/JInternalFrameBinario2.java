@@ -33,7 +33,7 @@ public class JInternalFrameBinario2 extends javax.swing.JInternalFrame {
                 int u = jSlider1.getValue();
                 int u2 = jSlider3.getValue();
                 
-                Image nueva = espacial.Filtros.Binario(imagenOriginal, u, u2);
+                Image nueva = espacial.Espacial.Binario(imagenOriginal, u, u2);
                 internal.setImagen(nueva);
             }
         });

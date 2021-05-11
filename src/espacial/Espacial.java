@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
  *
  * @author Rogelio Valle
  */
-public class Filtros {
+public class Espacial {
     
     public static Image Negativo(Image imagenOriginal) {
         BufferedImage b1 = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);

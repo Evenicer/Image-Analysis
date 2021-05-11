@@ -12,7 +12,7 @@ package espacial;
 public class BinarizacionAutomatica {
     
     //Otzu
-    public static int Otsu(int[] histograma){
+    public static int Otsu(double[] histograma){
         //La suma de los valores del histograma
         int total = 0;
         for(int i = 0;i<histograma.length;i++)total+=histograma[i];
@@ -57,7 +57,7 @@ public class BinarizacionAutomatica {
     }
     
     //Metodo Iterativo.
-    public static int metodoIterativo(int[] histograma){
+    public static int metodoIterativo(double[] histograma){
         int ui = calcularUmbralInicial(histograma);
         int uNuevo=0;
         //System.out.println("umbral 1: "+ui);
@@ -70,7 +70,7 @@ public class BinarizacionAutomatica {
         return ui;
     }
     
-    public static int calcularUmbralInicial(int[] histograma){
+    public static int calcularUmbralInicial(double[] histograma){
         int numPixels = 0;
         int suma = 0;
         for(int x=0;x<histograma.length;x++){
@@ -80,7 +80,7 @@ public class BinarizacionAutomatica {
         return (int)(suma/numPixels);
     }
     
-     private static int reajustarUmbral(int ui, int[] histograma) {
+     private static int reajustarUmbral(int ui, double[] histograma) {
        int u1,u2;
        int a1=0,a2=0,n1=0,n2=0;
        a1+=histograma[0];

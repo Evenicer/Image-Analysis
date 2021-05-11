@@ -31,7 +31,7 @@ public class JInternalFrameIluminacion extends javax.swing.JInternalFrame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 int u = ((JSlider) e.getSource()).getValue();
-                Image nueva = espacial.Filtros.modificarIluminacion(imagenOriginal, u);
+                Image nueva = espacial.Espacial.modificarIluminacion(imagenOriginal, u);
                 internal.setImagen(nueva);
             }
         });

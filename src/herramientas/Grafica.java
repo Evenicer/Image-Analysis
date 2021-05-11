@@ -39,7 +39,7 @@ public class Grafica {
        this.series.getSeries(nombre).add(dato);
     }
      
-    public void agregarSerie(String nombre, int[] datos){
+    public void agregarSerie(String nombre, double[] datos){
     
         XYSeries serie = new XYSeries(nombre);
         // agregar cada uno de los datos en la serie 

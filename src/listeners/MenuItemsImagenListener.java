@@ -6,16 +6,20 @@
 package listeners;
 
 import espacial.BinarizacionAutomatica;
-import espacial.Filtros;
+import espacial.Convolucion;
+import espacial.Espacial;
 import espacial.Histograma;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
 import gui.JInternalFrameBinario2;
+import gui.JInternalFrameConvolucion;
+import gui.JInternalFrameExpansiones;
 import gui.JInternalFrameHistograma;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameModificar;
 import gui.JInternalFrameRecortar;
+import gui.JInternalFrameRuido;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +32,7 @@ import javax.swing.JMenuItem;
 public class MenuItemsImagenListener implements ActionListener{
     
      
-    private  JFramePrincipal framePrincipal;
+    public static  JFramePrincipal framePrincipal;
 
     public MenuItemsImagenListener(JFramePrincipal framePrincipal) {
         this.framePrincipal = framePrincipal;
@@ -52,7 +56,7 @@ public class MenuItemsImagenListener implements ActionListener{
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             Image i = internal.getImagenOriginal();
             // convertimos a negativo
-            Image grises = espacial.Filtros.Negativo(i);
+            Image grises = espacial.Espacial.Negativo(i);
             
             JInternalFrameImagen internalNuevo = new JInternalFrameImagen(grises);
                        
@@ -65,7 +69,7 @@ public class MenuItemsImagenListener implements ActionListener{
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             Image i = internal.getImagenOriginal();
             // convertimos a escala de grises
-            Image grises = espacial.Filtros.EscalaGrises(i);
+            Image grises = espacial.Espacial.EscalaGrises(i);
             
             JInternalFrameImagen internalNuevo = new JInternalFrameImagen(grises);
                        
@@ -89,6 +93,15 @@ public class MenuItemsImagenListener implements ActionListener{
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
         
+        //Histograma
+        if (item.getText().equals("Graficar Histograma2")){
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            JInternalFrameHistograma internalNuevo = new JInternalFrameHistograma(internal); 
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+            System.out.println("HOLA");
+        }
+        
         //Binarizacion
         if (item.getText().equals("Binario")) {
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
@@ -100,7 +113,7 @@ public class MenuItemsImagenListener implements ActionListener{
         }
         
         //Binarizacion con 2 umbrales
-        if (item.getText().equals("Binario 2")) {
+        if (item.getText().equals("Binario 2 umbrales")) {
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
 
             JInternalFrameBinario2 internalNuevo = new JInternalFrameBinario2(internal);
@@ -124,11 +137,11 @@ public class MenuItemsImagenListener implements ActionListener{
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             Image i = internal.getImagenOriginal();
             // convertimos a escala de grises
-            Image grises = espacial.Filtros.EscalaGrises(i);
+            Image grises = espacial.Espacial.EscalaGrises(i);
             Histograma h = new Histograma(grises); 
             h.calcularHistogramas();
             int u = BinarizacionAutomatica.metodoIterativo(h.getGrises());
-            Image binario = espacial.Filtros.Binario(grises, u);
+            Image binario = espacial.Espacial.Binario(grises, u);
             System.out.println(u);
             JInternalFrameImagen internalNuevo = new JInternalFrameImagen(binario);
                        
@@ -141,17 +154,42 @@ public class MenuItemsImagenListener implements ActionListener{
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             Image i = internal.getImagenOriginal();
             // convertimos a escala de grises
-            Image grises = espacial.Filtros.EscalaGrises(i);
+            Image grises = espacial.Espacial.EscalaGrises(i);
             Histograma h = new Histograma(grises); 
             h.calcularHistogramas();
-            int u = BinarizacionAutomatica.Otsu(h.getGrises());
-            Image binario = espacial.Filtros.Binario(grises, u);
+            double u = BinarizacionAutomatica.Otsu(h.getGrises());
+            Image binario = espacial.Espacial.Binario(grises, (int)u);
             System.out.println(u);
             JInternalFrameImagen internalNuevo = new JInternalFrameImagen(binario);
                        
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
+        
+        //Convolucion
+        if (item.getText().equals("Convolucion")){
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            JInternalFrameConvolucion internalNuevo = new JInternalFrameConvolucion(internal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
+        //Expanciones
+        if (item.getText().equals("Expansiones")){
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            JInternalFrameExpansiones internalNuevo = new JInternalFrameExpansiones(internal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
+        //Ruido
+        if (item.getText().equals("Ruido")){
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            JInternalFrameRuido internalNuevo = new JInternalFrameRuido(internal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
     }
     
 }
