@@ -14,15 +14,18 @@ import gui.JInternalFrameBinario;
 import gui.JInternalFrameBinario2;
 import gui.JInternalFrameConvolucion;
 import gui.JInternalFrameExpansiones;
+import gui.JInternalFrameFrecuencias;
 import gui.JInternalFrameHistograma;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameModificar;
 import gui.JInternalFrameRecortar;
 import gui.JInternalFrameRuido;
+import herramientas.HerramientasImagen;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import javax.swing.JMenuItem;
 
 /**
@@ -190,6 +193,13 @@ public class MenuItemsImagenListener implements ActionListener{
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
         
+        //Analisis de Frecuencias
+        if (item.getText().equals("Filtros")){
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            JInternalFrameFrecuencias internalNuevo = new JInternalFrameFrecuencias(internal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
     }
     
 }

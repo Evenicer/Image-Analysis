@@ -40,6 +40,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         //Histograma Operaciones
         this.jMenuItemHistogramaN.addActionListener(lis);
         this.jMenuItemExpancionesN.addActionListener(lis);
+        
+        //Analisis de Frecuencias
+        this.jMenuItemFFT.addActionListener(lis);
     }
 
     /**
@@ -73,6 +76,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuHistogramaNew = new javax.swing.JMenu();
         jMenuItemHistogramaN = new javax.swing.JMenuItem();
         jMenuItemExpancionesN = new javax.swing.JMenuItem();
+        jMenuHistogramaNew1 = new javax.swing.JMenu();
+        jMenuItemFFT = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -208,6 +213,18 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuHistogramaNew);
 
+        jMenuHistogramaNew1.setText("Frecuencias");
+
+        jMenuItemFFT.setText("Filtros");
+        jMenuItemFFT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFFTActionPerformed(evt);
+            }
+        });
+        jMenuHistogramaNew1.add(jMenuItemFFT);
+
+        jMenuBar1.add(jMenuHistogramaNew1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,6 +289,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemRuidoActionPerformed
 
+    private void jMenuItemFFTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFFTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemFFTActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,6 +335,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuHistogramaNew;
+    private javax.swing.JMenu jMenuHistogramaNew1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemBinario;
@@ -321,6 +343,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemBinarioAutomatico;
     private javax.swing.JMenuItem jMenuItemConvolucion;
     private javax.swing.JMenuItem jMenuItemExpancionesN;
+    private javax.swing.JMenuItem jMenuItemFFT;
     private javax.swing.JMenuItem jMenuItemGrises;
     private javax.swing.JMenuItem jMenuItemHistogramaN;
     private javax.swing.JMenuItem jMenuItemIluminacion;

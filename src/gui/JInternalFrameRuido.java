@@ -65,6 +65,20 @@ public class JInternalFrameRuido extends javax.swing.JInternalFrame {
             }
         });
         
+        this.jButtonReduccionMedia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int width = imagenOriginal.getWidth(internal);
+                int heigth = imagenOriginal.getHeight(internal);
+                int dim = width * heigth;
+                Image nueva = espacial.Ruido.reduccionPorMedia(imagenOriginal, 10);
+                
+                JInternalFrameImagen internalNuevo = new JInternalFrameImagen(nueva);
+                internalNuevo.setVisible(true);
+                MenuItemsImagenListener.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+            }
+        });
+        
     }
 
     /**
@@ -80,6 +94,7 @@ public class JInternalFrameRuido extends javax.swing.JInternalFrame {
         jButtonRuido = new javax.swing.JButton();
         jButtonRuidoMixto = new javax.swing.JButton();
         jButtonRuidoPimienta = new javax.swing.JButton();
+        jButtonReduccionMedia = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -90,21 +105,28 @@ public class JInternalFrameRuido extends javax.swing.JInternalFrame {
 
         jButtonRuidoPimienta.setText("Pimienta");
 
+        jButtonReduccionMedia.setText("Reduccion Media");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jTextFieldX, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonRuidoPimienta, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRuidoMixto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRuido, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jTextFieldX, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jButtonReduccionMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +139,9 @@ public class JInternalFrameRuido extends javax.swing.JInternalFrame {
                 .addComponent(jButtonRuidoPimienta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonRuidoMixto)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(jButtonReduccionMedia)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,6 +149,7 @@ public class JInternalFrameRuido extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonReduccionMedia;
     private javax.swing.JButton jButtonRuido;
     private javax.swing.JButton jButtonRuidoMixto;
     private javax.swing.JButton jButtonRuidoPimienta;
